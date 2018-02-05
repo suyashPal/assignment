@@ -1,0 +1,20 @@
+<div>
+    <button (click)="logout()">logout</button>
+  <form name="RegForm">
+              <h1 style="margin-left:100px;">{{title}}</h1>
+  Name:<br>
+  <input type="text" [(ngModel)]="name" name="name" /><br>
+
+  Email:<br>
+  <input type="password" [(ngModel)]="password" name="password" /><br>
+
+  Email:<br>
+  <input type="date" [(ngModel)]="modify_date" name="modify_date" /><br>
+  
+
+  <button (click)="updateDetail(name,password,modify_date)">update</button>
+</form>
+<h1>
+  {{update_msg}}
+</h1>
+</div>

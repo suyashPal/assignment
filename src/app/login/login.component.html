@@ -1,0 +1,15 @@
+<div class="span3">
+  <h2>login</h2>
+  <form>
+  <label>id</label>
+  <input type="text" [(ngModel)]="id" name="id" class="span3">
+  <br><br>
+  <label>password</label>
+  <input type="text" [(ngModel)]="password" name="password" class="span3">
+  <br><br>
+ <input type="button" value="Login" (click)=" onAuthentication(id,password)">
+  <br><br><br>
+   <!-- <input type="submit" value="sign up" (click)="adduser(name,email,password,pincode,phone_number,role)" class="btn btn-primary pull-right"> -->
+  <div class="clearfix"></div>
+  </form>
+</div>
