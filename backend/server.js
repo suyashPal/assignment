@@ -1,17 +1,28 @@
+var express=require('express');
+var mongoose=require('mongoose');
+var body_parser=require('body-parser');
 
-import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({
-  name: 'category'
-})
-export class CategoryPipe implements PipeTransform {
 
-transform(records: any, searchText: any): any {
- if(searchText == null) return records;
+mongoose.connect('mongodb://localhost:27017/userlist');
 
- return records.filter(function(category){
-   return (category.lastName.toLowerCase().indexOf(searchText.toLowerCase())>-1)||(category.firstName.toLowerCase().indexOf(searchText.toLowerCase())>-1)||(category.id.toString().indexOf(searchText.toString())>-1)||(category.email.toLowerCase().indexOf(searchText.toLowerCase())>-1)||(category.isActive.toLowerCase().indexOf(searchText.toLowerCase())>-1)||(category.dateCreated.toLowerCase().indexOf(searchText.toLowerCase())>-1)||(category.dateUpdated.toLowerCase().indexOf(searchText.toLowerCase())>-1);
- })
-  }
 
-}
+var main=module.exports=express();
+
+main.set('env',process.env.NODE_ENV || 'production');
+
+main.use(body_parser.urlencoded({ extended : true}));
+
+main.use(body_parser.json());
+
+
+routes=require('./routes/routes');
+main.use('/api',routes);
+
+
+var port = process.env.PORT || 1000;
+
+
+
+main.listen(port);
+console.log('Server starts on port ' + port);
