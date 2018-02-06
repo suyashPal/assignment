@@ -10,21 +10,21 @@ export class UserService {
 }
 getAllUser()
 {
-  return this.http.get('http://localhost:1000/api/v1/user/getAllUser').map(res=>res.json())
+  return this.http.get('http://192.168.14.233:1000/api/v1/user/getAllUser').map(res=>res.json())
 }
 
 authenticateUser(userInfo)
 {
       console.log(userInfo);
-      return this.http.post('http://localhost:1000/api/v1/user/authenticateUser', userInfo)
+      return this.http.post('http://192.168.14.233:1000/api/v1/user/authenticateUser', userInfo)
       .map((response: Response) => response.json())
 }
 updateuserdetails(name,updateuser)
 {
- return this.http.put('http://localhost:1000/api/v1/updateuserdetails/'+name,updateuser).map(res=>res.json())
+ return this.http.put('http://192.168.14.233:1000/api/v1/updateuserdetails/'+name,updateuser).map(res=>res.json())
 }
 getUserdeatils(id)
 {
-  return this.http.get('http://localhost:1000/api/v1/getuserdetails/'+ id).map(res=>res.json()) 
+  return this.http.get('http://192.168.14.233:1000/api/v1/getuserdetails/'+ id).map(res=>res.json()) 
 }
 }
